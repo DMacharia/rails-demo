@@ -3,6 +3,8 @@ class Book < ApplicationRecord
     validates :title, presence: true
     validates :synposis, presence: true
 
+    belongs_to :author
+
     def self.search_by_author(author)
         self.where.not("author like ?", "%#{author}%" )
         # self.find_by(author: "#{author}")
